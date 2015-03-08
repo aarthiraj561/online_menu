@@ -1,0 +1,18 @@
+%h1
+%br
+%p Feedback List for #{@menu.item}
+%p
+%table.table.table-striped
+  %tr
+    %th Author
+    %th Feedback Message
+  - @feedbacks.each do |feedback|
+    %tr
+      %td
+        = feedback.author
+      %td
+        = feedback.message
+
+= will_paginate @feedbacks
+%br
+= link_to "Give feedback", new_feedback_path(:menu_id => @menu.id)

@@ -1,0 +1,17 @@
+%h1
+  =get_greet_message(@restaurant.name)
+
+
+= form_tag("/search_locations", method: "get") do
+  = label_tag(:menu, "Search by Menu")
+  %input#search{:autocomplete => "off", :input => "text", :name => "menu"}/
+  = submit_tag("Search")
+
+%h3 OR
+
+= form_tag("/get_menu_items", method: "post") do
+  = label_tag(:q, "Search for:")
+  = select_tag "location_id", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select branch"
+
+  = select_tag "day", options_for_select(Date::DAYNAMES), prompt: "Select Day"
+  = submit_tag("Search")

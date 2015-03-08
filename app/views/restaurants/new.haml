@@ -1,0 +1,8 @@
+%div{:style => "margin-top:50px;"}
+  %p
+    %b Feedback Form
+  = simple_form_for @restaurant, url: feedbacks_path, via: 'post', as: 'feedback'  do |f|
+    = f.hidden_field :menu_id
+    = f.input :author, placeholder: 'Author Name'
+    = f.input :message, placeholder: 'Give your feedback'
+    = f.button :submit
