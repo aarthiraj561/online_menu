@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
   def get_menu_items
     if params[:location_id].present? && params[:day].present?
       @location = Location.find(params[:location_id])
-      @menu_items = Location.find(params[:location_id]).menu.get_day_menu(params[:day])
+      @menu_items = Location.find(params[:location_id]).menus.get_day_menu(params[:day])
     else
       redirect_to root_url, notice: "Please select branch and day."
     end

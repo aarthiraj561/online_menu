@@ -1,15 +1,15 @@
 class LocationsController < ApplicationController
 	def new
-		@location = Location.new(:restaurant_id => params[:restaurant_id])		
+		@location = Location.new(:restaurant_id => params[:restaurant_id])
 	end
 
 	def create
-		@location = Location.create(location_params)
-		if @location
+		@location = Location.new(location_params)
+		if @location.save
 			redirect_to locations_path(:restaurant_id => params[:location][:restaurant_id]), notice: "Branch successfully created."
 		else
 			flash[:alert] = @location.errors.full_messages.first
-			redirect_to root_url
+			redirect_to locations_path(:restaurant_id => params[:location][:restaurant_id] )
 		end
 	end
 

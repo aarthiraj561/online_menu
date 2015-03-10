@@ -10,6 +10,7 @@
     %th Branch Name
     %th Address
     %th Add Menu
+    %th View Menu
   - @locations.each do |location|
     %tr
       %td
@@ -18,6 +19,8 @@
         = location.address
       %td
         = link_to "Add Menu", new_menu_path(:location_id => location.id)
+      %td
+        = link_to "View Menu", menus_path(:location_id => location.id)
 
 / = will_paginate @locations
 / %br

@@ -16,6 +16,4 @@
       %td
         = menu.day
 
-/ = will_paginate @locations
-/ %br
-/ = link_to "Give feedback", new_feedback_path(:menu_id => @menu.id)
+= link_to "Add Menu", new_menu_path(:location_id => @location.id)

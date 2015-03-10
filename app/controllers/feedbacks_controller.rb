@@ -4,13 +4,12 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    if params[:feedback][:message].present?
-      @feedback = Feedback.create(feedback_params)
-      if @feedback
-        redirect_to feedbacks_path(:menu_id => params[:feedback][:menu_id]), notice: "Feedback successfully posted."
-      end
+    @feedback = Feedback.new(feedback_params)
+    if @feedback.save
+      redirect_to feedbacks_path(:menu_id => params[:feedback][:menu_id]), notice: "Feedback successfully posted."
     else
-      redirect_to new_feedback_path(:menu_id => params[:feedback][:menu_id]), notice: "Feedback cannot be empty."
+      flash[:alert] = @feedback.errors.full_messages.first
+      redirect_to new_feedback_path(:menu_id => params[:feedback][:menu_id])
     end
   end
 
