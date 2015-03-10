@@ -1,0 +1,21 @@
+%h1
+%br
+%p Menu Item List for #{@location.restaurant.name} in #{@location.name}
+%p
+%table.table.table-striped
+  %tr
+    %th Menu Item
+    %th Type of menu
+    %th Availability
+  - @menu_list.each do |menu|
+    %tr
+      %td
+        = menu.item
+      %td
+        = menu.type_of
+      %td
+        = menu.day
+
+/ = will_paginate @locations
+/ %br
+/ = link_to "Give feedback", new_feedback_path(:menu_id => @menu.id)

@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
   belongs_to :restaurant
-  has_many :menu
+  has_many :menus
+
 end

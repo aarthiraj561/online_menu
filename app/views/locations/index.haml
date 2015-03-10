@@ -1,0 +1,21 @@
+%h1
+%br
+%p Branches List for #{@restaurant.name}
+%p
+%table.table.table-striped
+  %tr
+    %th Branch Name
+    %th Address
+    %th Add Menu
+  - @locations.each do |location|
+    %tr
+      %td
+        = location.name
+      %td
+        = location.address
+      %td
+        = link_to "Add Menu", new_menu_path(:location_id => location.id)
+
+/ = will_paginate @locations
+/ %br
+/ = link_to "Give feedback", new_feedback_path(:menu_id => @menu.id)
