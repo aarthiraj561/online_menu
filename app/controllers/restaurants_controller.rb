@@ -30,10 +30,26 @@ class RestaurantsController < ApplicationController
     @menu = Menu.where(:item => params[:menu]).includes(:location)
   end
 
-  def new
-    @restaurant = Restaurant.new
-    3.times{ @restaurant.locations.build }
-    3.times{}
-  end
+  # def new_location
+  #   @restaurant = Restaurant.first
+  #   @restaurant.locations.build(:restaurant_id => @restaurant.id)
+  #   # respond_with @restaurant
+  # end
+
+  # def create_locations
+  #   @restaurant = Restaurant.first
+  #   if @restaurant.update_attributes(restaurant_params)
+  #     flash[:success] = "Created/Updated Locations"
+  #     redirect_to locations_path
+  #   else
+  #     flash[:alert] = @restaurant.errors.full_messages.first
+  #     redirect_to edit_locations_path
+  #   end
+  # end
+
+  # private
+  # def restaurant_params
+  #   params.require(:restaurant).permit(:name, locations_attributes: [:name, :address])
+  # end
 
 end

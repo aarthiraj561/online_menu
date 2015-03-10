@@ -1,0 +1,6 @@
+= simple_form_for(@menu, :url => menus_path, :html => { :method => :post, :role => "form form-horizontal"}) do |f|
+  = f.hidden_field :location_id
+  = f.input :item, :label => "Menu Item"
+  = f.input :type_of, :label => "Type of Menu"
+  = f.select :day, options_for_select(Date::DAYNAMES), prompt: "Select Day"
+  = f.button :submit

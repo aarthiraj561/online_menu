@@ -1,0 +1,5 @@
+= simple_form_for(@location, :url => locations_path, :html => { :method => :post, :role => "form form-horizontal"}) do |f|
+  = f.hidden_field :restaurant_id
+  = f.input :name, :label => "Branch Name"
+  = f.input :address, :lable => "Address"
+  = f.button :submit
