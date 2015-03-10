@@ -1,5 +1,8 @@
 %h1
 %br
+
+= link_to "Add Branch", new_location_path(:restaurant_id => params[:restaurant_id])
+
 %p Branches List for #{@restaurant.name}
 %p
 %table.table.table-striped

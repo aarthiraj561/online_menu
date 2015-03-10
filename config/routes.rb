@@ -10,13 +10,7 @@ Rails.application.routes.draw do
   get 'search_menu_items' => 'restaurants#search_menu_items'
   get 'search_locations' => 'restaurants#search_locations'
 
-  resources :feedbacks do
-  end
-
-  resources :locations do
-  end
-
-  resources :menus do
+  resources :feedbacks, :locations, :menus do
   end
 
   # Example of regular route:
