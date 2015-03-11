@@ -12,4 +12,6 @@ class Menu < ActiveRecord::Base
   scope :get_day_menu, ->(day) { where(:day => day).select(:item,:id, :type_of) }
   scope :get_menu_items, ->(query_string) { uniq.where("item LIKE ?", "%#{query_string}%").pluck(:item) }
 
+  before_create { self.item.downcase! }
+
 end

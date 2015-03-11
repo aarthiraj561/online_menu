@@ -21,3 +21,4 @@
           = link_to "View feedback list", feedbacks_path(:menu_id => menu.id)
 -else
   %p No Menu for #{@location.name} on #{params[:day]}
+  = link_to "Add Menu", new_menu_path(:location_id => @location.id)

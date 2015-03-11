@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
 
   def search_menu_items
     if params[:query]
-      @menu_items = Menu.get_menu_items(params[:query])
+      @menu_items = Menu.get_menu_items(params[:query].downcase)
     else
       @menu_items = Menu.all
     end
