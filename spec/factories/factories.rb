@@ -6,9 +6,15 @@ FactoryGirl.define do
 
   factory :menu do
     association :location, factory: :location
-    item "#{Idly.downcase}"
+    item "#{'Idly'.downcase}"
     day "Sunday"
     type_of "Breakfast, Dinner"
+  end
+
+  factory :feedback do
+    association :menu, factory: :menu
+    author "Aarthi"
+    message "Its good"
   end
 
 end
